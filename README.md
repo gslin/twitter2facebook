@@ -1,5 +1,7 @@
 # twitter2facebook
 
+This is developed and tested in Ubuntu 18.04 only.
+
 # Pre-installation
 
 Install these packages first:
