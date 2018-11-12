@@ -1,5 +1,7 @@
 # twitter2facebook
 
+Sync Twitter's timeline to Facebook's without Facebook API by posting to `mbasic.facebook.com`.
+
 This is developed and tested in Ubuntu 18.04 only.
 
 # Pre-installation
