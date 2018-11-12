@@ -1,2 +1,3 @@
 python-twitter>=0
 selenium>=0
+configparser>=0
