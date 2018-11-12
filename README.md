@@ -8,4 +8,4 @@ Use `sqlite3` to create table schema in `~/.config/twitter2facebook/entry.sqlite
 
 # License
 
-SEE [LICENSE](LICENSE).
+See [LICENSE](LICENSE).
