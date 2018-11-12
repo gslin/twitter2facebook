@@ -1,0 +1,2 @@
+python-twitter>=0
+selenium>=0
