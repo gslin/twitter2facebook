@@ -13,10 +13,12 @@ import urllib
 def post(text):
     url = 'https://mbasic.facebook.com/'
 
+    home = os.environ['HOME']
+
     chrome_options = selenium.webdriver.chrome.options.Options()
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--user-data-dir=/home/gslin/.config/chromium')
+    chrome_options.add_argument('--user-data-dir={}/.config/chromium'.format(home))
     chrome_options.binary_location = '/usr/bin/chromium-browser'
 
     with selenium.webdriver.Chrome(options=chrome_options) as b:
