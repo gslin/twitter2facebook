@@ -15,6 +15,10 @@ And create symbolic link for chromedriver:
 
 # Installation
 
+Install Python 3 first (I used `pyenv` to run it), then use `pip` to install dependencies:
+
+    pip install -r requirements.txt
+
 Setup Twitter's key & secret in `~/.config/twitter2facebook/config.ini`:
 
     [default]
