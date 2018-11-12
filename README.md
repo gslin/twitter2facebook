@@ -1,5 +1,16 @@
 # twitter2facebook
 
+# Pre-installation
+
+Install these packages first:
+
+* chromium-browser
+* chromium-chromedriver
+
+And create symbolic link for chromedriver:
+
+    ln -s ../lib/chromium-browser/chromedriver /usr/bin/chromedriver
+
 # Installation
 
 Setup Twitter's key & secret in `~/.config/twitter2facebook/config.ini`:
