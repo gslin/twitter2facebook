@@ -32,6 +32,12 @@ Use `sqlite3` to create table schema in `~/.config/twitter2facebook/entry.sqlite
 
     CREATE TABLE entry (id INTEGER PRIMARY KEY AUTOINCREMENT, twitter_id TEXT UNIQUE, created_at INTEGER);
 
+# Crontab
+
+When using pyenv, you might need to specify pyenv to run this script:
+
+    LANG=en_US.UTF-8 ~/.pyenv/shims/python3 /path/twitter2facebook/twitter2facebook.py
+
 # License
 
 See [LICENSE](LICENSE).
