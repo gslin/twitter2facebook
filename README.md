@@ -15,6 +15,8 @@ And create symbolic link for chromedriver:
 
     ln -s ../lib/chromium-browser/chromedriver /usr/bin/chromedriver
 
+Then login Facebook and keep cookies.
+
 # Installation
 
 Install Python 3 first (I used `pyenv` to run it), then use `pip` to install dependencies:
