@@ -17,6 +17,18 @@ And create symbolic link for chromedriver:
 
 Then login Facebook and keep cookies.
 
+# Workaround on Chromium
+
+Chrome cannot use cookies in headless mode with latest version (now it's 71), so you need the workaround to install old version, and avoid upgrading:
+
+    mkdir /tmp/workaround-chromium
+    cd /tmp/workaround-chromium
+    wget http://us.archive.ubuntu.com/ubuntu/pool/universe/c/chromium-browser/chromium-browser_67.0.3396.99-0ubuntu0.17.10.1_amd64.deb
+    wget http://us.archive.ubuntu.com/ubuntu/pool/universe/c/chromium-browser/chromium-chromedriver_67.0.3396.99-0ubuntu0.17.10.1_amd64.deb
+    wget http://us.archive.ubuntu.com/ubuntu/pool/universe/c/chromium-browser/chromium-codecs-ffmpeg_67.0.3396.99-0ubuntu0.17.10.1_amd64.deb
+    sudo dpkg -i chromium-*.deb
+    sudo apt-mark hold chromium-browser chromium-chromedriver chromium-codecs-ffmpeg
+
 # Installation
 
 Install Python 3 first (I used `pyenv` to run it), then use `pip` to install dependencies:
