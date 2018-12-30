@@ -21,6 +21,7 @@ Then login Facebook and keep cookies.
 
 Chrome cannot use cookies in headless mode with latest version (now it's 71), so you need the workaround to install old version, and avoid from upgrading:
 
+    apt-cache showpkg chromium-browser
     sudo apt install \
         chromium-browser=65.0.3325.181-0ubuntu1 \
         chromium-chromedriver=65.0.3325.181-0ubuntu1 \
