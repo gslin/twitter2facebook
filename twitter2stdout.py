@@ -3,12 +3,8 @@
 
 import configparser
 import os
-import selenium
-import selenium.webdriver.chrome.options
 import sqlite3
-import time
 import twitter
-import urllib
 
 def work():
     home = os.environ['HOME']
