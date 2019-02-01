@@ -56,7 +56,7 @@ def work():
         for u in status.urls:
             text = text.replace(u.url, u.expanded_url)
 
-        # Skeip if it's a reply.
+        # Skip if it's a reply.
         if status.in_reply_to_user_id:
             continue
 
