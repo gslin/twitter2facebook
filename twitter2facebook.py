@@ -64,6 +64,13 @@ def work():
         if status.retweeted:
             continue
 
+        # Skip if it's from IFTTT and it contains Instagram url.
+        try:
+            if 'IFTTT' in status.source and 'https://www.instagram.com/p/' in status.urls[0].expanded_url:
+                continue
+        except IndexError:
+            pass
+
         # Generate "url"
         url = 'https://twitter.com/{}/status/{}'.format(urllib.parse.quote(t_user), urllib.parse.quote(status.id_str))
 
