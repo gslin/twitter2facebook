@@ -5,6 +5,7 @@ import configparser
 import os
 import selenium
 import selenium.webdriver.chrome.options
+import sentry_sdk
 import sqlite3
 import time
 import twitter
@@ -37,6 +38,9 @@ def work():
 
     c = configparser.ConfigParser()
     c.read(f_conf)
+
+    sentry_sdk_url = c['default']['sentry_sdk_url']
+    sentry_sdk.init(sentry_sdk_url)
 
     t_ak = c['default']['twitter_access_token_key']
     t_as = c['default']['twitter_access_token_secret']
