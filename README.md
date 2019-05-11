@@ -37,6 +37,7 @@ Install Python 3 first (I used `pyenv` to run it), then use `pip` to install dep
 Setup Twitter's key & secret in `~/.config/twitter2facebook/config.ini`:
 
     [default]
+    sentry_sdk_url = https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@sentry.io/yyyyyyy
     twitter_access_token_key = x-x
     twitter_access_token_secret = x
     twitter_consumer_key = x
