@@ -12,7 +12,7 @@ import twitter
 import urllib
 
 def post(text):
-    url = 'https://m.facebook.com/'
+    url = 'https://mbasic.facebook.com/'
 
     home = os.environ['HOME']
 
@@ -25,16 +25,10 @@ def post(text):
     with selenium.webdriver.Chrome(options=chrome_options) as b:
         b.get(url)
 
-        t = b.find_element_by_css_selector('div[role="textbox"]')
-        t.click()
-
-        # Hack, but it works
-        time.sleep(5)
-
-        t = b.find_element_by_css_selector('textarea.composerInput.mentions-input')
+        t = b.find_element_by_css_selector('#mbasic_inline_feed_composer textarea')
         t.send_keys(text)
 
-        btn = b.find_element_by_css_selector('button[value="Post"]')
+        btn = b.find_element_by_css_selector('#mbasic_inline_feed_composer input[value="Post"]')
         btn.click()
 
 def work():
