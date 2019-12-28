@@ -28,6 +28,8 @@ Chromium cannot use cookies in headless mode with latest version (now it's 71), 
         chromium-codecs-ffmpeg=65.0.3325.181-0ubuntu1
     sudo apt-mark hold chromium-browser chromium-chromedriver chromium-codecs-ffmpeg
 
+Since this chromium is old, I would suggest that just use it for twitter2facebook (so only access Facebook), not to use it regularly, for security reason.
+
 # Installation
 
 Install Python 3 first (I used `pyenv` to run it), then use `pip` to install dependencies:
