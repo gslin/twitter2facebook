@@ -13,7 +13,7 @@ Install these packages first:
 
 And create symbolic link for chromedriver:
 
-    ln -s ../lib/chromium-browser/chromedriver /usr/bin/chromedriver
+    sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
 
 Then login Facebook and keep cookies.
 
