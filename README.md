@@ -2,7 +2,7 @@
 
 Sync Twitter's timeline to Facebook's without Facebook API by posting to `mbasic.facebook.com`.
 
-This is developed and tested in Ubuntu 18.04 only.
+This project is developed and tested in Ubuntu 18.04 only.
 
 # Pre-installation
 
@@ -19,7 +19,7 @@ Then login Facebook and keep cookies.
 
 # Workaround on Chromium
 
-Chrome cannot use cookies in headless mode with latest version (now it's 71), so you need the workaround to install old version, and avoid from upgrading:
+Chromium cannot use cookies in headless mode with latest version (now it's 71), so you need the workaround to install old version, and avoid from upgrading:
 
     apt-cache showpkg chromium-browser
     sudo apt install \
