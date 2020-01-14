@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import configparser
+import html
 import os
 import selenium
 import selenium.webdriver.chrome.options
@@ -56,8 +57,8 @@ def work():
     sql_select = 'SELECT COUNT(*) FROM entry WHERE twitter_id = ?;'
 
     for status in sorted(list(t.GetUserTimeline(screen_name=t_user)), key=lambda x: x.id):
-        # Generate "text"
-        text = status.text
+        # Generate "text" with unescape (workaround).
+        text = html.unescape(status.text)
         for u in status.urls:
             text = text.replace(u.url, u.expanded_url)
 
