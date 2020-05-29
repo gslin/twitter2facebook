@@ -73,7 +73,7 @@ class Twitter2Facebook(object):
 
             # Skip if it's from IFTTT and it contains Instagram url.
             try:
-                if 'IFTTT' in status.source and 'https://www.instagram.com/p/' in status.urls[0].expanded_url:
+                if 'IFTTT' in status.source and 'https://instagr.am/p/' in status.urls[0].expanded_url:
                     continue
             except IndexError:
                 pass
