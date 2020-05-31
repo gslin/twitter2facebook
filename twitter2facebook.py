@@ -95,4 +95,4 @@ class Twitter2Facebook(object):
                 s.commit()
 
 if __name__ == '__main__':
-    Twitter2Facebook.main()
+    Twitter2Facebook().main()
