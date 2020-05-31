@@ -7,7 +7,7 @@ import sqlite3
 import twitter
 
 class Twitter2Stdout(object):
-    def main():
+    def main(self):
         home = os.environ['HOME']
         f_conf = '{}/.config/twitter2facebook/config.ini'.format(home)
         f_db = '{}/.config/twitter2facebook/entry.sqlite3'.format(home)
@@ -26,4 +26,4 @@ class Twitter2Stdout(object):
             print('* tweet = {}'.format(status))
 
 if __name__ == '__main__':
-    Twitter2Stdout.main()
+    Twitter2Stdout().main()
