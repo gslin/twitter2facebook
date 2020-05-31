@@ -13,7 +13,7 @@ import twitter
 import urllib
 
 class Twitter2Facebook(object):
-    def post(self.text):
+    def post(self, text):
         url = 'https://mbasic.facebook.com/'
 
         home = os.environ['HOME']
