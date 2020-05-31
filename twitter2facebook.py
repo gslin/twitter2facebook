@@ -13,7 +13,7 @@ import twitter
 import urllib
 
 class Twitter2Facebook(object):
-    def post(text):
+    def post(self.text):
         url = 'https://mbasic.facebook.com/'
 
         home = os.environ['HOME']
@@ -33,7 +33,7 @@ class Twitter2Facebook(object):
             btn = b.find_element_by_css_selector('#mbasic_inline_feed_composer input[value="Post"]')
             btn.click()
 
-    def main():
+    def main(self):
         home = os.environ['HOME']
         f_conf = '{}/.config/twitter2facebook/config.ini'.format(home)
         f_db = '{}/.config/twitter2facebook/entry.sqlite3'.format(home)
