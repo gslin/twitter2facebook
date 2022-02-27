@@ -25,7 +25,7 @@ Then SSH into the server and create a tunnel (`:1` is usually `:5901`) to allow 
 
     ssh -L5901:127.0.0.1:5901 server.example.com
 
-Once you have accessed the desktop environment, just login Facebook.
+Once you have accessed the desktop environment, just login Facebook, and you can `pkill Xtightvnc` to terminate VNC server.
 
 # Workaround on Chromium
 
