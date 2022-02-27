@@ -2,22 +2,20 @@
 
 Sync Twitter's timeline to Facebook's without Facebook API by posting to `mbasic.facebook.com`.
 
-This project is developed and tested in Ubuntu 18.04 only.
+This project is developed and tested in Ubuntu 20.04 now.
 
 # Pre-installation
 
 Install these packages first:
 
-* chromium-browser
-* chromium-chromedriver
+* firefox-esr
+* firefox-esr-geckodriver
 
-And create symbolic link for chromedriver:
-
-    sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
+In Ubuntu you may need to install via https://launchpad.net/~mozillateam/+archive/ubuntu/ppa this PPA repository.
 
 # Login Facebook
 
-For local/desktop server, you can just open the browser and login Facebook.  For remote server (e.g. VPS), you may install `tightvncserver` and `icewm` to setup a VNC server:
+For remote server (e.g. VPS), you may install `tightvncserver` and `icewm` to setup a VNC server:
 
     tightvncserver -depth 24 -geometry 1366x768
 
@@ -25,20 +23,11 @@ Then SSH into the server and create a tunnel (`:1` in X environment is usually `
 
     ssh -L5901:127.0.0.1:5901 server.example.com
 
-Once you have accessed the desktop environment, just login Facebook, and you can `pkill Xtightvnc` to terminate VNC server.
+Once you have accessed the desktop environment, open the browser with `-profile` assignment:
 
-# Workaround on Chromium
+    firefox-esr -profile ~/.mozilla/firefox-esr/selenium
 
-Chromium cannot use cookies in headless mode with latest version (now it's 71), so you need the workaround to install old version, and avoid from upgrading:
-
-    apt-cache showpkg chromium-browser
-    sudo apt install \
-        chromium-browser=65.0.3325.181-0ubuntu1 \
-        chromium-chromedriver=65.0.3325.181-0ubuntu1 \
-        chromium-codecs-ffmpeg=65.0.3325.181-0ubuntu1
-    sudo apt-mark hold chromium-browser chromium-chromedriver chromium-codecs-ffmpeg
-
-Since this chromium is old, I suggest that just use it for twitter2facebook (so it will only access Facebook site), and not to use it regularly, for security reason.
+Then login Facebook, and you can `pkill Xtightvnc` to terminate VNC server once you complete login.
 
 # Installation
 
