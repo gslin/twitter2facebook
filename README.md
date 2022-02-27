@@ -29,6 +29,8 @@ Once you have accessed the desktop environment, open the browser with `-profile`
 
 Then login Facebook, and you can `pkill Xtightvnc` to terminate VNC server once you complete login.
 
+Please note that Facebook login is somehow strange, therefore you may need to close the browser and open it again to make sure you're really login-ed.
+
 # Installation
 
 Install Python 3 first (I used `pyenv` to run it), then use `pip` to install dependencies:
