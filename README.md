@@ -17,11 +17,11 @@ And create symbolic link for chromedriver:
 
 # Login Facebook
 
-For local/desktop server, you can just open the browser and login Facebook.  For remote server (e.g. VPS), you may install `tightvncserver` and `icewm` to setup VNC:
+For local/desktop server, you can just open the browser and login Facebook.  For remote server (e.g. VPS), you may install `tightvncserver` and `icewm` to setup a VNC server:
 
     tightvncserver -depth 24 -geometry 1366x768
 
-Then SSH into the server and create a tunnel (`:1` is usually `:5901`) to allow your VNC viewer to access the desktop environment:
+Then SSH into the server and create a tunnel (`:1` is usually `:5901`) to allow your VNC viewer to access the desktop environment securely:
 
     ssh -L5901:127.0.0.1:5901 server.example.com
 
