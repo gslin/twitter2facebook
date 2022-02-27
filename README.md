@@ -15,7 +15,17 @@ And create symbolic link for chromedriver:
 
     sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver
 
-Then login Facebook and keep cookies.
+# Login Facebook
+
+For local/desktop server, you can just open the browser and login Facebook.  For remote server (e.g. VPS), you may install `tightvncserver` and `icewm` to setup VNC:
+
+    tightvncserver -depth 24 -geometry 1366x768
+
+Then SSH into the server and create a tunnel (`:1` is usually `:5901`) to allow your VNC viewer to access the desktop environment:
+
+    ssh -L5901:127.0.0.1:5901 server.example.com
+
+Once you have accessed the desktop environment, just login Facebook.
 
 # Workaround on Chromium
 
