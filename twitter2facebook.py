@@ -5,12 +5,15 @@ import configparser
 import html
 import os
 import selenium
-import selenium.webdriver.chrome.options
+import selenium.webdriver.firefox.options
 import sentry_sdk
 import sqlite3
 import time
 import twitter
 import urllib
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 class Twitter2Facebook(object):
     def post(self, text):
@@ -18,19 +21,20 @@ class Twitter2Facebook(object):
 
         home = os.environ['HOME']
 
-        chrome_options = selenium.webdriver.chrome.options.Options()
-        chrome_options.add_argument('--disable-gpu')
-        chrome_options.add_argument('--headless')
-        chrome_options.add_argument('--user-data-dir={}/.config/chromium'.format(home))
-        chrome_options.binary_location = '/usr/bin/chromium-browser'
+        firefox_binary = '/usr/bin/firefox-esr'
+        profile_dir = home + '/.mozilla/firefox-esr/selenium'
 
-        with selenium.webdriver.Chrome(options=chrome_options) as b:
+        options = selenium.webdriver.firefox.options.Options()
+        options.headless = True
+        options.profile = profile_dir
+
+        with selenium.webdriver.Firefox(firefox_binary=FirefoxBinary(firefox_binary), options=options) as b:
             b.get(url)
 
-            t = b.find_element_by_css_selector('#mbasic_inline_feed_composer textarea')
+            t = b.find_element(by=By.CSS_SELECTOR, value='#mbasic_inline_feed_composer textarea')
             t.send_keys(text)
 
-            btn = b.find_element_by_css_selector('#mbasic_inline_feed_composer input[value="Post"]')
+            btn = b.find_element(by=By.CSS_SELECTOR, value='#mbasic_inline_feed_composer input[value="Post"]')
             btn.click()
 
     def main(self):
