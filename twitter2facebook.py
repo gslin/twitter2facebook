@@ -16,9 +16,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 class Twitter2Facebook(object):
-    def post(self, text):
-        url = 'https://mbasic.facebook.com/'
-
+    def init_browser(self):
         home = os.environ['HOME']
 
         firefox_binary = '/usr/bin/firefox-esr'
@@ -28,14 +26,19 @@ class Twitter2Facebook(object):
         options.headless = True
         options.profile = profile_dir
 
-        with selenium.webdriver.Firefox(firefox_binary=FirefoxBinary(firefox_binary), options=options) as b:
-            b.get(url)
+        self.b = selenium.webdriver.Firefox(firefox_binary=FirefoxBinary(firefox_binary), options=options) as b:
 
-            t = b.find_element(by=By.CSS_SELECTOR, value='#mbasic_inline_feed_composer textarea')
-            t.send_keys(text)
+    def post(self, text):
+        b = self.b
+        url = 'https://mbasic.facebook.com/'
 
-            btn = b.find_element(by=By.CSS_SELECTOR, value='#mbasic_inline_feed_composer input[value="Post"]')
-            btn.click()
+        b.get(url)
+
+        t = b.find_element(by=By.CSS_SELECTOR, value='#mbasic_inline_feed_composer textarea')
+        t.send_keys(text)
+
+        btn = b.find_element(by=By.CSS_SELECTOR, value='#mbasic_inline_feed_composer input[value="Post"]')
+        btn.click()
 
     def main(self):
         home = os.environ['HOME']
@@ -60,6 +63,8 @@ class Twitter2Facebook(object):
 
         sql_insert = 'INSERT INTO entry (twitter_id, created_at) VALUES (?, ?);'
         sql_select = 'SELECT COUNT(*) FROM entry WHERE twitter_id = ?;'
+
+        self.init_browser()
 
         for status in sorted(list(t.GetUserTimeline(screen_name=t_user)), key=lambda x: x.id):
             # Generate "text" with unescape (workaround).
