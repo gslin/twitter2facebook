@@ -108,5 +108,13 @@ class Twitter2Facebook(object):
                 c.execute(sql_insert, (status.id_str, int(time.time())))
                 s.commit()
 
+        self.quit_browser()
+
+    def quit_broser(self):
+        if self.b is None:
+            return
+
+        self.b.quit()
+
 if __name__ == '__main__':
     Twitter2Facebook().main()
