@@ -26,7 +26,7 @@ class Twitter2Facebook(object):
         options.headless = True
         options.profile = profile_dir
 
-        self.b = selenium.webdriver.Firefox(firefox_binary=FirefoxBinary(firefox_binary), options=options) as b:
+        self.b = selenium.webdriver.Firefox(firefox_binary=FirefoxBinary(firefox_binary), options=options)
 
     def post(self, text):
         b = self.b
