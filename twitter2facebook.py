@@ -16,6 +16,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 class Twitter2Facebook(object):
+    b = None
+
     def init_browser(self):
         if self.b is not None:
             return
