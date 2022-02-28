@@ -110,7 +110,7 @@ class Twitter2Facebook(object):
 
         self.quit_browser()
 
-    def quit_broser(self):
+    def quit_browser(self):
         if self.b is None:
             return
 
