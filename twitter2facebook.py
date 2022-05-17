@@ -99,7 +99,7 @@ class Twitter2Facebook(object):
 
             c.execute(sql_select, (status.id_str, ))
             if 0 == c.fetchone()[0]:
-                content = '{} # {}'.format(text, url)
+                content = '{}\n\n{}'.format(text, url)
                 print('* content = {}'.format(content))
 
                 print(content)
