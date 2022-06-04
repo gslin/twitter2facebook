@@ -77,10 +77,6 @@ class Twitter2Facebook(object):
             for u in status.urls:
                 text = text.replace(u.url, u.expanded_url)
 
-            # Skip if it's a reply.
-            if status.in_reply_to_user_id:
-                continue
-
             # Skip if it's a retweet.
             if status.retweeted:
                 continue
