@@ -2,7 +2,7 @@
 
 Sync Twitter's timeline to Facebook's without Facebook API by posting to `mbasic.facebook.com`.
 
-This project is developed and tested in Ubuntu 20.04 now.
+This project is developed and tested in Ubuntu 20.04 so far.
 
 # Pre-installation
 
