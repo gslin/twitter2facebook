@@ -15,21 +15,21 @@ In Ubuntu you may need to install via https://launchpad.net/~mozillateam/+archiv
 
 # Login Facebook
 
-For remote server (e.g. VPS), you may install `tightvncserver` and `icewm` to setup a VNC server:
+For remote server (e.g. VPS), you may install `tightvncserver` and `icewm` then setup a VNC server afterwards:
 
     tightvncserver -depth 24 -geometry 1366x768
 
-Then SSH into the server and create a tunnel (`:1` in X environment is usually `:5901` for TCP) to allow your VNC viewer to access the desktop environment securely:
+Once VNC is set, try to create a SSH tunnel (`:1` in X environment is usually `:5901` for TCP) to allow your VNC viewer to access the desktop environment securely:
 
     ssh -L5901:127.0.0.1:5901 server.example.com
 
-Once you have accessed the desktop environment, open the browser with `-profile` assignment:
+Once you have accessed the desktop environment, open the browser with `-profile` assignment within the terminal:
 
     firefox-esr -profile ~/.mozilla/firefox-esr/selenium
 
-Then login Facebook, and you can `pkill Xtightvnc` to terminate VNC server once you complete login.
+Then login Facebook and close the browser.  Now you can run `pkill Xtightvnc` to terminate the VNC server.
 
-Please note that Facebook login is somehow strange, therefore you may need to close the browser and open it again to make sure you're really login-ed.
+Please note that Facebook login is somehow strange, therefore sometimes you need to close the browser and open it again to make sure you're really login-ed.
 
 # Installation
 
