@@ -4,12 +4,12 @@
 import configparser
 import html
 import os
+import requests
 import selenium
 import selenium.webdriver.firefox.options
 import sentry_sdk
 import sqlite3
 import time
-import urllib
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
