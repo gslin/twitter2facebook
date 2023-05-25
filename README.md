@@ -1,6 +1,6 @@
 # twitter2facebook
 
-Sync Twitter's timeline to Facebook's without Facebook API by posting to `mbasic.facebook.com`.
+Sync Twitter's timeline via RSS Bridge to Facebook's timeline without Facebook API by posting to `mbasic.facebook.com`.
 
 This project is developed and tested in Ubuntu 20.04 so far.
 
@@ -41,11 +41,7 @@ Setup Twitter's key & secret in `~/.config/twitter2facebook/config.ini`:
 
     [default]
     sentry_sdk_url = https://xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx@sentry.io/yyyyyyy
-    twitter_access_token_key = x-x
-    twitter_access_token_secret = x
-    twitter_consumer_key = x
-    twitter_consumer_secret = x
-    twitter_username = xxx
+    twitter_rssbridge_jsonfeed_url = https://x
 
 I use Sentry to log error (to notify me when Facebook logout my account), and you can keep empty if you don't want to use Sentry.
 
