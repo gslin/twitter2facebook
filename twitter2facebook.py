@@ -4,6 +4,7 @@
 import configparser
 import html
 import os
+import re
 import requests
 import selenium
 import selenium.webdriver.firefox.options
@@ -11,6 +12,7 @@ import sentry_sdk
 import sqlite3
 import time
 
+from lxml.html.clean import Cleaner
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
@@ -66,14 +68,26 @@ class Twitter2Facebook(object):
         sql_insert = 'INSERT INTO entry (twitter_id, created_at) VALUES (?, ?);'
         sql_select = 'SELECT COUNT(*) FROM entry WHERE twitter_id = ?;'
 
+        cl = Cleaner(allow_tags=['a'])
+
         for item in items:
             # Skip if it's retweet.
             if item['title'].startswith('@'):
                 continue
 
+            # Craft "text".
+            #
+            # First to remove all tags except "a" and root's "div".
+            text = cl.clean_html(item['content_html'])
+
+            # Remove root's "div".
+            text = text.replace('<div>', '').replace('</div>', '')
+
+            # Replace each "a" element with its href link.
+            text = re.sub(r'<a href="(.*?)">.*?</a>', r'\1', text)
+
             # Generate parameters.
             id_str = item['url'].split('/')[-1]
-            text = item['title']
             url = item['url']
 
             c = s.cursor()
