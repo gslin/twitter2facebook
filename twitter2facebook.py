@@ -83,8 +83,12 @@ class Twitter2Facebook(object):
             # Remove root's "div".
             text = text.replace('<div>', '').replace('</div>', '')
 
-            # Replace each "a" element with its href link.
-            text = re.sub(r'<a href="(.*?)">.*?</a>', r'\1', text)
+            # Replace each "a" element with its href link and unescape.
+            tokens = re.split(r'<a href="(.*)?">(?:.*)?</a>', text)
+            for i in range(1, len(tokens), 2):
+                tokens[i] = re.sub(r'<a href="(.*)">.*</a>', r'\1', tokens[i])
+                tokens[i] = html.unescape(tokens[i])
+            text = ''.join(tokens)
 
             # Generate parameters.
             id_str = item['url'].split('/')[-1]
