@@ -90,6 +90,10 @@ class Twitter2Facebook(object):
                 tokens[i] = html.unescape(tokens[i])
             text = ''.join(tokens)
 
+            # Skip Instagram.
+            if 'https://instagr.am/p/' in text:
+                continue
+
             # Generate parameters.
             id_str = item['url'].split('/')[-1]
             url = item['url']
