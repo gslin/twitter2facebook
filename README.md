@@ -1,3 +1,7 @@
+# DEPRECATED
+
+Twitter API is not free anymore, so I've created another project [feed2social](https://github.com/gslin/feed2social) as I've moved to Mastodon as source (in this case, Mastodon supports RSS feed).
+
 # twitter2facebook
 
 Sync Twitter's timeline via RSS Bridge to Facebook's timeline without Facebook API by posting to `mbasic.facebook.com`.
